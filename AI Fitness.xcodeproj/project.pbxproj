@@ -15,6 +15,7 @@
 		511CA78F246F6357005D3325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CA78E246F6357005D3325 /* Assets.xcassets */; };
 		511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CA790246F6357005D3325 /* LaunchScreen.storyboard */; };
 		511CA79D246F6357005D3325 /* AI_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA79C246F6357005D3325 /* AI_FitnessTests.swift */; };
+		51252864246F647E002D1F67 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51252863246F647E002D1F67 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		511CA798246F6357005D3325 /* AI FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI FitnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511CA79C246F6357005D3325 /* AI_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_FitnessTests.swift; sourceTree = "<group>"; };
 		511CA79E246F6357005D3325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51252863246F647E002D1F67 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				511CA789246F6353005D3325 /* SecondViewController.swift */,
 				511CA78B246F6353005D3325 /* Main.storyboard */,
 				511CA78E246F6357005D3325 /* Assets.xcassets */,
+				51252863246F647E002D1F67 /* Colors.xcassets */,
 				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
 				511CA793246F6357005D3325 /* Info.plist */,
 			);
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */,
+				51252864246F647E002D1F67 /* Colors.xcassets in Resources */,
 				511CA78F246F6357005D3325 /* Assets.xcassets in Resources */,
 				511CA78D246F6353005D3325 /* Main.storyboard in Resources */,
 			);
