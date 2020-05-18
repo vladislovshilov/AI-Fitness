@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  AI Fitness
 //
 //  Created by Vlados iOS on 5/16/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class FirstViewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

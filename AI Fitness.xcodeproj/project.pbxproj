@@ -16,6 +16,9 @@
 		511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CA790246F6357005D3325 /* LaunchScreen.storyboard */; };
 		511CA79D246F6357005D3325 /* AI_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA79C246F6357005D3325 /* AI_FitnessTests.swift */; };
 		51252864246F647E002D1F67 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51252863246F647E002D1F67 /* Colors.xcassets */; };
+		51CAD82A2472283A0096E937 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD8292472283A0096E937 /* Exercise.storyboard */; };
+		51CAD82C247228430096E937 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD82B247228430096E937 /* Profile.storyboard */; };
+		51CAD82E24722A800096E937 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD82D24722A800096E937 /* BaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		511CA79C246F6357005D3325 /* AI_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_FitnessTests.swift; sourceTree = "<group>"; };
 		511CA79E246F6357005D3325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51252863246F647E002D1F67 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		51CAD8292472283A0096E937 /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
+		51CAD82B247228430096E937 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		51CAD82D24722A800096E937 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +91,10 @@
 			children = (
 				511CA783246F6353005D3325 /* AppDelegate.swift */,
 				511CA785246F6353005D3325 /* SceneDelegate.swift */,
-				511CA787246F6353005D3325 /* FirstViewController.swift */,
-				511CA789246F6353005D3325 /* SecondViewController.swift */,
-				511CA78B246F6353005D3325 /* Main.storyboard */,
-				511CA78E246F6357005D3325 /* Assets.xcassets */,
-				51252863246F647E002D1F67 /* Colors.xcassets */,
-				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
-				511CA793246F6357005D3325 /* Info.plist */,
+				51CAD82D24722A800096E937 /* BaseController.swift */,
+				51CAD826247226560096E937 /* Flow */,
+				51CAD825247226480096E937 /* UI */,
+				51CAD8242472263B0096E937 /* Common */,
 			);
 			path = "AI Fitness";
 			sourceTree = "<group>";
@@ -103,6 +106,52 @@
 				511CA79E246F6357005D3325 /* Info.plist */,
 			);
 			path = "AI FitnessTests";
+			sourceTree = "<group>";
+		};
+		51CAD8242472263B0096E937 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				511CA78E246F6357005D3325 /* Assets.xcassets */,
+				51252863246F647E002D1F67 /* Colors.xcassets */,
+				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
+				511CA793246F6357005D3325 /* Info.plist */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		51CAD825247226480096E937 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				511CA78B246F6353005D3325 /* Main.storyboard */,
+				51CAD8292472283A0096E937 /* Exercise.storyboard */,
+				51CAD82B247228430096E937 /* Profile.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		51CAD826247226560096E937 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				51CAD8272472265E0096E937 /* Exercise */,
+				51CAD828247226680096E937 /* Profile */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		51CAD8272472265E0096E937 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				511CA787246F6353005D3325 /* FirstViewController.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		51CAD828247226680096E937 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				511CA789246F6353005D3325 /* SecondViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51CAD82C247228430096E937 /* Profile.storyboard in Resources */,
 				511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */,
+				51CAD82A2472283A0096E937 /* Exercise.storyboard in Resources */,
 				51252864246F647E002D1F67 /* Colors.xcassets in Resources */,
 				511CA78F246F6357005D3325 /* Assets.xcassets in Resources */,
 				511CA78D246F6353005D3325 /* Main.storyboard in Resources */,
@@ -209,6 +260,7 @@
 			files = (
 				511CA78A246F6353005D3325 /* SecondViewController.swift in Sources */,
 				511CA788246F6353005D3325 /* FirstViewController.swift in Sources */,
+				51CAD82E24722A800096E937 /* BaseController.swift in Sources */,
 				511CA784246F6353005D3325 /* AppDelegate.swift in Sources */,
 				511CA786246F6353005D3325 /* SceneDelegate.swift in Sources */,
 			);
@@ -372,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZU2FDU5KQ;
-				INFOPLIST_FILE = "AI Fitness/Info.plist";
+				INFOPLIST_FILE = "AI Fitness/Common/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,7 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZU2FDU5KQ;
-				INFOPLIST_FILE = "AI Fitness/Info.plist";
+				INFOPLIST_FILE = "AI Fitness/Common/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
