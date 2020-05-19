@@ -19,6 +19,13 @@
 		51CAD82A2472283A0096E937 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD8292472283A0096E937 /* Exercise.storyboard */; };
 		51CAD82C247228430096E937 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD82B247228430096E937 /* Profile.storyboard */; };
 		51CAD82E24722A800096E937 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD82D24722A800096E937 /* BaseController.swift */; };
+		51CAD830247233F90096E937 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD82F247233F90096E937 /* CameraViewController.swift */; };
+		51CAD833247234BD0096E937 /* model_cpm.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD832247234BD0096E937 /* model_cpm.mlmodel */; };
+		51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD834247234CC0096E937 /* DrawingJointView.swift */; };
+		51CAD837247234E10096E937 /* PredictedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD836247234E10096E937 /* PredictedPoint.swift */; };
+		51CAD839247234EF0096E937 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD838247234EF0096E937 /* VideoCapture.swift */; };
+		51CAD83B247235040096E937 /* HeatmapPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */; };
+		51CAD83D2472350C0096E937 /* MovingAverageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,13 @@
 		51CAD8292472283A0096E937 /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		51CAD82B247228430096E937 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		51CAD82D24722A800096E937 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		51CAD82F247233F90096E937 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		51CAD832247234BD0096E937 /* model_cpm.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = model_cpm.mlmodel; sourceTree = "<group>"; };
+		51CAD834247234CC0096E937 /* DrawingJointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingJointView.swift; sourceTree = "<group>"; };
+		51CAD836247234E10096E937 /* PredictedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictedPoint.swift; sourceTree = "<group>"; };
+		51CAD838247234EF0096E937 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapPostProcessor.swift; sourceTree = "<group>"; };
+		51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingAverageFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +106,7 @@
 				511CA783246F6353005D3325 /* AppDelegate.swift */,
 				511CA785246F6353005D3325 /* SceneDelegate.swift */,
 				51CAD82D24722A800096E937 /* BaseController.swift */,
+				51CAD8312472348B0096E937 /* Core */,
 				51CAD826247226560096E937 /* Flow */,
 				51CAD825247226480096E937 /* UI */,
 				51CAD8242472263B0096E937 /* Common */,
@@ -142,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				511CA787246F6353005D3325 /* FirstViewController.swift */,
+				51CAD82F247233F90096E937 /* CameraViewController.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -152,6 +168,19 @@
 				511CA789246F6353005D3325 /* SecondViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		51CAD8312472348B0096E937 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				51CAD832247234BD0096E937 /* model_cpm.mlmodel */,
+				51CAD834247234CC0096E937 /* DrawingJointView.swift */,
+				51CAD838247234EF0096E937 /* VideoCapture.swift */,
+				51CAD836247234E10096E937 /* PredictedPoint.swift */,
+				51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */,
+				51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +289,16 @@
 			files = (
 				511CA78A246F6353005D3325 /* SecondViewController.swift in Sources */,
 				511CA788246F6353005D3325 /* FirstViewController.swift in Sources */,
+				51CAD833247234BD0096E937 /* model_cpm.mlmodel in Sources */,
 				51CAD82E24722A800096E937 /* BaseController.swift in Sources */,
+				51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */,
+				51CAD83D2472350C0096E937 /* MovingAverageFilter.swift in Sources */,
 				511CA784246F6353005D3325 /* AppDelegate.swift in Sources */,
+				51CAD839247234EF0096E937 /* VideoCapture.swift in Sources */,
 				511CA786246F6353005D3325 /* SceneDelegate.swift in Sources */,
+				51CAD837247234E10096E937 /* PredictedPoint.swift in Sources */,
+				51CAD830247233F90096E937 /* CameraViewController.swift in Sources */,
+				51CAD83B247235040096E937 /* HeatmapPostProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
