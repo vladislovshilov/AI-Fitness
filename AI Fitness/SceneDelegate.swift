@@ -9,15 +9,28 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    private let coordinatorFactory: ICoordinatorFactory
+    private let defaultStorage: IDefaultsStorage
 
     var window: UIWindow?
 
+    override init() {
+        ServicesAssembly.register()
+        self.coordinatorFactory = CoordinatorFactory()
+        self.defaultStorage = ServiceLocator.shared.resolve()
+        super.init()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        if let windowScene = scene as? UIWindowScene {
+            window = UIWindow(windowScene: windowScene)
+            start()
+//            let coordinatorFactory = CoordinatorFactory()
+//            let applicationCoordinator = AppFlowCoordinator(window: window,
+//                                                            coordinatorFactory: coordinatorFactory)
+//            applicationCoordinator.start()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,5 +62,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+// MARK: - Coordinatable
+
+extension SceneDelegate: Coordinatable {
+    func start() {
+        guard defaultStorage.isLogin else {
+                performAuthorizationFlow()
+                return
+        }
+        
+        performMainFlow()
+    }
+}
+
+// MARK: - Support methods
+
+private extension SceneDelegate {
+    func performAuthorizationFlow() {
+        let navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        let router = Router(rootController: navigationController)
+        var coordinator = coordinatorFactory.makeAuthorizationCoordinator(router: router)
+        coordinator.onFinishFlowHandler = {
+            self.performMainFlow()
+        }
+        coordinator.start()
+        window?.makeKeyAndVisible()
+    }
+    
+    func performMainFlow() {
+        let tabbarController = UITabBarController()
+        window?.rootViewController = tabbarController
+        var coordinator = coordinatorFactory.makeMainCoordinator(tabController: tabbarController)
+        coordinator.onFinishFlowHandler = {
+            self.performAuthorizationFlow()
+        }
+        coordinator.start()
+        window?.makeKeyAndVisible()
+    }
 }
 

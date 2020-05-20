@@ -3,13 +3,13 @@
 
 target 'AI Fitness' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+  #use_frameworks!
 
-  # Pods for AI Fitness
+  pod 'R.swift'
 
   target 'AI FitnessTests' do
     inherit! :search_paths
-    # Pods for testing
+    
   end
 
 end

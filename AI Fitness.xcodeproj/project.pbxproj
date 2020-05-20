@@ -7,25 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA19D15696898E8266F626D /* libPods-AI Fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B162EAB91A843E66208E62C0 /* libPods-AI Fitness.a */; };
 		511CA784246F6353005D3325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA783246F6353005D3325 /* AppDelegate.swift */; };
 		511CA786246F6353005D3325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA785246F6353005D3325 /* SceneDelegate.swift */; };
-		511CA788246F6353005D3325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA787246F6353005D3325 /* FirstViewController.swift */; };
-		511CA78A246F6353005D3325 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA789246F6353005D3325 /* SecondViewController.swift */; };
-		511CA78D246F6353005D3325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CA78B246F6353005D3325 /* Main.storyboard */; };
 		511CA78F246F6357005D3325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CA78E246F6357005D3325 /* Assets.xcassets */; };
 		511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CA790246F6357005D3325 /* LaunchScreen.storyboard */; };
 		511CA79D246F6357005D3325 /* AI_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA79C246F6357005D3325 /* AI_FitnessTests.swift */; };
 		51252864246F647E002D1F67 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51252863246F647E002D1F67 /* Colors.xcassets */; };
-		51CAD82A2472283A0096E937 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD8292472283A0096E937 /* Exercise.storyboard */; };
-		51CAD82C247228430096E937 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CAD82B247228430096E937 /* Profile.storyboard */; };
+		517077162474A6E4008FE476 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077152474A6E4008FE476 /* Coordinatable.swift */; };
+		517077182474A6F9008FE476 /* FinishFlowSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077172474A6F9008FE476 /* FinishFlowSupportable.swift */; };
+		5170771A2474A884008FE476 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077192474A884008FE476 /* AppFlowCoordinator.swift */; };
+		5170771C2474A939008FE476 /* TabBarItemSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170771B2474A939008FE476 /* TabBarItemSupportable.swift */; };
+		5170771E2474B4A7008FE476 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170771D2474B4A7008FE476 /* CoordinatorFactory.swift */; };
+		517077242474B50F008FE476 /* DefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077232474B50F008FE476 /* DefaultsStorage.swift */; };
+		517077262474B58F008FE476 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077252474B58F008FE476 /* ServiceLocator.swift */; };
+		517077282474B5D1008FE476 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077272474B5D1008FE476 /* ServiceAssembly.swift */; };
+		5170772A2474B6FE008FE476 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077292474B6FE008FE476 /* Routable.swift */; };
+		5170772C2474B70C008FE476 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170772B2474B70C008FE476 /* Router.swift */; };
+		517077332474BC27008FE476 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077322474BC27008FE476 /* AuthFlowCoordinator.swift */; };
+		517077352474BC2F008FE476 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077342474BC2F008FE476 /* MainFlowCoordinator.swift */; };
+		5170773C2474C2A0008FE476 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170773A2474C2A0008FE476 /* AuthViewController.swift */; };
+		5170773D2474C2A0008FE476 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5170773B2474C2A0008FE476 /* AuthViewController.xib */; };
+		5170773F2474C2B9008FE476 /* AuthModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170773E2474C2B9008FE476 /* AuthModulesFactory.swift */; };
+		517077412474C2F0008FE476 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077402474C2F0008FE476 /* Presentable.swift */; };
+		517077432474C572008FE476 /* ExerciseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077422474C572008FE476 /* ExerciseCoordinator.swift */; };
+		517077482474C75C008FE476 /* ExerciseModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077472474C75C008FE476 /* ExerciseModulesFactory.swift */; };
+		5170774B2474C7C1008FE476 /* ExercisesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077492474C7C1008FE476 /* ExercisesListViewController.swift */; };
+		5170774C2474C7C1008FE476 /* ExercisesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5170774A2474C7C1008FE476 /* ExercisesListViewController.xib */; };
+		5170774F2474C820008FE476 /* ExerciseProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170774D2474C820008FE476 /* ExerciseProcessViewController.swift */; };
+		517077502474C820008FE476 /* ExerciseProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5170774E2474C820008FE476 /* ExerciseProcessViewController.xib */; };
 		51CAD82E24722A800096E937 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD82D24722A800096E937 /* BaseController.swift */; };
-		51CAD830247233F90096E937 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD82F247233F90096E937 /* CameraViewController.swift */; };
 		51CAD833247234BD0096E937 /* model_cpm.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD832247234BD0096E937 /* model_cpm.mlmodel */; };
 		51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD834247234CC0096E937 /* DrawingJointView.swift */; };
 		51CAD837247234E10096E937 /* PredictedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD836247234E10096E937 /* PredictedPoint.swift */; };
 		51CAD839247234EF0096E937 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD838247234EF0096E937 /* VideoCapture.swift */; };
 		51CAD83B247235040096E937 /* HeatmapPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */; };
 		51CAD83D2472350C0096E937 /* MovingAverageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */; };
+		51D2A2562474CD44005EE92D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D2A2552474CD44005EE92D /* ProfileCoordinator.swift */; };
+		51D2A2592474EBEE005EE92D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D2A2582474EBEE005EE92D /* R.generated.swift */; };
+		51D2A25E2474F0A7005EE92D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D2A25C2474F0A6005EE92D /* ProfileViewController.swift */; };
+		51D2A25F2474F0A7005EE92D /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D2A25D2474F0A7005EE92D /* ProfileViewController.xib */; };
+		B8F216674DDE040618C58A75 /* libPods-AI FitnessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6211A60AA53C7B622EB0EA /* libPods-AI FitnessTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,9 +64,6 @@
 		511CA780246F6353005D3325 /* AI Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511CA783246F6353005D3325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		511CA785246F6353005D3325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		511CA787246F6353005D3325 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		511CA789246F6353005D3325 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		511CA78C246F6353005D3325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		511CA78E246F6357005D3325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		511CA791246F6357005D3325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511CA793246F6357005D3325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,16 +71,45 @@
 		511CA79C246F6357005D3325 /* AI_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_FitnessTests.swift; sourceTree = "<group>"; };
 		511CA79E246F6357005D3325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51252863246F647E002D1F67 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		51CAD8292472283A0096E937 /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
-		51CAD82B247228430096E937 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		517077152474A6E4008FE476 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		517077172474A6F9008FE476 /* FinishFlowSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishFlowSupportable.swift; sourceTree = "<group>"; };
+		517077192474A884008FE476 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		5170771B2474A939008FE476 /* TabBarItemSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemSupportable.swift; sourceTree = "<group>"; };
+		5170771D2474B4A7008FE476 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		517077232474B50F008FE476 /* DefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStorage.swift; sourceTree = "<group>"; };
+		517077252474B58F008FE476 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		517077272474B5D1008FE476 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		517077292474B6FE008FE476 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		5170772B2474B70C008FE476 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		517077322474BC27008FE476 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		517077342474BC2F008FE476 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		5170773A2474C2A0008FE476 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		5170773B2474C2A0008FE476 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
+		5170773E2474C2B9008FE476 /* AuthModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModulesFactory.swift; sourceTree = "<group>"; };
+		517077402474C2F0008FE476 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		517077422474C572008FE476 /* ExerciseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCoordinator.swift; sourceTree = "<group>"; };
+		517077472474C75C008FE476 /* ExerciseModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModulesFactory.swift; sourceTree = "<group>"; };
+		517077492474C7C1008FE476 /* ExercisesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListViewController.swift; sourceTree = "<group>"; };
+		5170774A2474C7C1008FE476 /* ExercisesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExercisesListViewController.xib; sourceTree = "<group>"; };
+		5170774D2474C820008FE476 /* ExerciseProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseProcessViewController.swift; sourceTree = "<group>"; };
+		5170774E2474C820008FE476 /* ExerciseProcessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseProcessViewController.xib; sourceTree = "<group>"; };
 		51CAD82D24722A800096E937 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		51CAD82F247233F90096E937 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51CAD832247234BD0096E937 /* model_cpm.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = model_cpm.mlmodel; sourceTree = "<group>"; };
 		51CAD834247234CC0096E937 /* DrawingJointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingJointView.swift; sourceTree = "<group>"; };
 		51CAD836247234E10096E937 /* PredictedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictedPoint.swift; sourceTree = "<group>"; };
 		51CAD838247234EF0096E937 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapPostProcessor.swift; sourceTree = "<group>"; };
 		51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingAverageFilter.swift; sourceTree = "<group>"; };
+		51D2A2552474CD44005EE92D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		51D2A2582474EBEE005EE92D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		51D2A25C2474F0A6005EE92D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		51D2A25D2474F0A7005EE92D /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		6F3631BC8978D1A624708D1C /* Pods-AI Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.release.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.release.xcconfig"; sourceTree = "<group>"; };
+		71268A7B4E9A29CA4E5F09DF /* Pods-AI FitnessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI FitnessTests.release.xcconfig"; path = "Target Support Files/Pods-AI FitnessTests/Pods-AI FitnessTests.release.xcconfig"; sourceTree = "<group>"; };
+		776F5A81878CBAAB2FC2F8BB /* Pods-AI Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.debug.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.debug.xcconfig"; sourceTree = "<group>"; };
+		8A6211A60AA53C7B622EB0EA /* libPods-AI FitnessTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AI FitnessTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B162EAB91A843E66208E62C0 /* libPods-AI Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AI Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4951D307B42F4AD903E2481 /* Pods-AI FitnessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI FitnessTests.debug.xcconfig"; path = "Target Support Files/Pods-AI FitnessTests/Pods-AI FitnessTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA19D15696898E8266F626D /* libPods-AI Fitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,18 +125,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F216674DDE040618C58A75 /* libPods-AI FitnessTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37F42832DECCD0FE47B2D805 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				776F5A81878CBAAB2FC2F8BB /* Pods-AI Fitness.debug.xcconfig */,
+				6F3631BC8978D1A624708D1C /* Pods-AI Fitness.release.xcconfig */,
+				D4951D307B42F4AD903E2481 /* Pods-AI FitnessTests.debug.xcconfig */,
+				71268A7B4E9A29CA4E5F09DF /* Pods-AI FitnessTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		511CA777246F6353005D3325 = {
 			isa = PBXGroup;
 			children = (
+				51D2A2582474EBEE005EE92D /* R.generated.swift */,
 				511CA782246F6353005D3325 /* AI Fitness */,
 				511CA79B246F6357005D3325 /* AI FitnessTests */,
 				511CA781246F6353005D3325 /* Products */,
+				37F42832DECCD0FE47B2D805 /* Pods */,
+				7344DF8EA8EE2820175C688C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,11 +169,14 @@
 			children = (
 				511CA783246F6353005D3325 /* AppDelegate.swift */,
 				511CA785246F6353005D3325 /* SceneDelegate.swift */,
-				51CAD82D24722A800096E937 /* BaseController.swift */,
+				5170771D2474B4A7008FE476 /* CoordinatorFactory.swift */,
+				517077252474B58F008FE476 /* ServiceLocator.swift */,
+				517077272474B5D1008FE476 /* ServiceAssembly.swift */,
+				5170772B2474B70C008FE476 /* Router.swift */,
+				517077142474A6D6008FE476 /* ModuleProtocols */,
 				51CAD8312472348B0096E937 /* Core */,
 				51CAD826247226560096E937 /* Flow */,
-				51CAD825247226480096E937 /* UI */,
-				51CAD8242472263B0096E937 /* Common */,
+				51CAD8242472263B0096E937 /* Resources */,
 			);
 			path = "AI Fitness";
 			sourceTree = "<group>";
@@ -123,54 +190,19 @@
 			path = "AI FitnessTests";
 			sourceTree = "<group>";
 		};
-		51CAD8242472263B0096E937 /* Common */ = {
+		517077142474A6D6008FE476 /* ModuleProtocols */ = {
 			isa = PBXGroup;
 			children = (
-				511CA78E246F6357005D3325 /* Assets.xcassets */,
-				51252863246F647E002D1F67 /* Colors.xcassets */,
-				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
-				511CA793246F6357005D3325 /* Info.plist */,
+				517077152474A6E4008FE476 /* Coordinatable.swift */,
+				517077172474A6F9008FE476 /* FinishFlowSupportable.swift */,
+				5170771B2474A939008FE476 /* TabBarItemSupportable.swift */,
+				517077292474B6FE008FE476 /* Routable.swift */,
+				517077402474C2F0008FE476 /* Presentable.swift */,
 			);
-			path = Common;
+			path = ModuleProtocols;
 			sourceTree = "<group>";
 		};
-		51CAD825247226480096E937 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				511CA78B246F6353005D3325 /* Main.storyboard */,
-				51CAD8292472283A0096E937 /* Exercise.storyboard */,
-				51CAD82B247228430096E937 /* Profile.storyboard */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		51CAD826247226560096E937 /* Flow */ = {
-			isa = PBXGroup;
-			children = (
-				51CAD8272472265E0096E937 /* Exercise */,
-				51CAD828247226680096E937 /* Profile */,
-			);
-			path = Flow;
-			sourceTree = "<group>";
-		};
-		51CAD8272472265E0096E937 /* Exercise */ = {
-			isa = PBXGroup;
-			children = (
-				511CA787246F6353005D3325 /* FirstViewController.swift */,
-				51CAD82F247233F90096E937 /* CameraViewController.swift */,
-			);
-			path = Exercise;
-			sourceTree = "<group>";
-		};
-		51CAD828247226680096E937 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				511CA789246F6353005D3325 /* SecondViewController.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		51CAD8312472348B0096E937 /* Core */ = {
+		517077212474B4FE008FE476 /* ML */ = {
 			isa = PBXGroup;
 			children = (
 				51CAD832247234BD0096E937 /* model_cpm.mlmodel */,
@@ -180,7 +212,131 @@
 				51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */,
 				51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */,
 			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		517077222474B504008FE476 /* DefaultStorage */ = {
+			isa = PBXGroup;
+			children = (
+				517077232474B50F008FE476 /* DefaultsStorage.swift */,
+			);
+			path = DefaultStorage;
+			sourceTree = "<group>";
+		};
+		5170772E2474B73D008FE476 /* BaseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				51CAD82D24722A800096E937 /* BaseController.swift */,
+			);
+			path = BaseControllers;
+			sourceTree = "<group>";
+		};
+		517077302474BC16008FE476 /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				517077342474BC2F008FE476 /* MainFlowCoordinator.swift */,
+				51CAD8272472265E0096E937 /* Exercise */,
+				51CAD828247226680096E937 /* Profile */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		517077312474BC1B008FE476 /* AuthFlow */ = {
+			isa = PBXGroup;
+			children = (
+				517077322474BC27008FE476 /* AuthFlowCoordinator.swift */,
+				5170773E2474C2B9008FE476 /* AuthModulesFactory.swift */,
+				517077392474C294008FE476 /* Auth */,
+			);
+			path = AuthFlow;
+			sourceTree = "<group>";
+		};
+		517077392474C294008FE476 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5170773A2474C2A0008FE476 /* AuthViewController.swift */,
+				5170773B2474C2A0008FE476 /* AuthViewController.xib */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		517077452474C705008FE476 /* ExercisesList */ = {
+			isa = PBXGroup;
+			children = (
+				517077492474C7C1008FE476 /* ExercisesListViewController.swift */,
+				5170774A2474C7C1008FE476 /* ExercisesListViewController.xib */,
+			);
+			path = ExercisesList;
+			sourceTree = "<group>";
+		};
+		517077462474C718008FE476 /* EcerciseProcess */ = {
+			isa = PBXGroup;
+			children = (
+				5170774D2474C820008FE476 /* ExerciseProcessViewController.swift */,
+				5170774E2474C820008FE476 /* ExerciseProcessViewController.xib */,
+			);
+			path = EcerciseProcess;
+			sourceTree = "<group>";
+		};
+		51CAD8242472263B0096E937 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				511CA78E246F6357005D3325 /* Assets.xcassets */,
+				51252863246F647E002D1F67 /* Colors.xcassets */,
+				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
+				511CA793246F6357005D3325 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		51CAD826247226560096E937 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				517077192474A884008FE476 /* AppFlowCoordinator.swift */,
+				5170772E2474B73D008FE476 /* BaseControllers */,
+				517077312474BC1B008FE476 /* AuthFlow */,
+				517077302474BC16008FE476 /* MainFlow */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		51CAD8272472265E0096E937 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				517077422474C572008FE476 /* ExerciseCoordinator.swift */,
+				517077472474C75C008FE476 /* ExerciseModulesFactory.swift */,
+				517077452474C705008FE476 /* ExercisesList */,
+				517077462474C718008FE476 /* EcerciseProcess */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		51CAD828247226680096E937 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				51D2A2552474CD44005EE92D /* ProfileCoordinator.swift */,
+				51D2A25C2474F0A6005EE92D /* ProfileViewController.swift */,
+				51D2A25D2474F0A7005EE92D /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		51CAD8312472348B0096E937 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				517077222474B504008FE476 /* DefaultStorage */,
+				517077212474B4FE008FE476 /* ML */,
+			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		7344DF8EA8EE2820175C688C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B162EAB91A843E66208E62C0 /* libPods-AI Fitness.a */,
+				8A6211A60AA53C7B622EB0EA /* libPods-AI FitnessTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +346,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 511CA7A1246F6357005D3325 /* Build configuration list for PBXNativeTarget "AI Fitness" */;
 			buildPhases = (
+				448CF98FDDC68CB455A7A1A5 /* [CP] Check Pods Manifest.lock */,
+				517077442474C64D008FE476 /* ShellScript */,
 				511CA77C246F6353005D3325 /* Sources */,
 				511CA77D246F6353005D3325 /* Frameworks */,
 				511CA77E246F6353005D3325 /* Resources */,
@@ -207,6 +365,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 511CA7A4246F6357005D3325 /* Build configuration list for PBXNativeTarget "AI FitnessTests" */;
 			buildPhases = (
+				50BC114D950A26B2B480EEE9 /* [CP] Check Pods Manifest.lock */,
 				511CA794246F6357005D3325 /* Sources */,
 				511CA795246F6357005D3325 /* Frameworks */,
 				511CA796246F6357005D3325 /* Resources */,
@@ -264,12 +423,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51CAD82C247228430096E937 /* Profile.storyboard in Resources */,
 				511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */,
-				51CAD82A2472283A0096E937 /* Exercise.storyboard in Resources */,
+				5170774C2474C7C1008FE476 /* ExercisesListViewController.xib in Resources */,
+				51D2A25F2474F0A7005EE92D /* ProfileViewController.xib in Resources */,
+				5170773D2474C2A0008FE476 /* AuthViewController.xib in Resources */,
+				517077502474C820008FE476 /* ExerciseProcessViewController.xib in Resources */,
 				51252864246F647E002D1F67 /* Colors.xcassets in Resources */,
 				511CA78F246F6357005D3325 /* Assets.xcassets in Resources */,
-				511CA78D246F6353005D3325 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,22 +442,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		448CF98FDDC68CB455A7A1A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AI Fitness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50BC114D950A26B2B480EEE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AI FitnessTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		517077442474C64D008FE476 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		511CA77C246F6353005D3325 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				511CA78A246F6353005D3325 /* SecondViewController.swift in Sources */,
-				511CA788246F6353005D3325 /* FirstViewController.swift in Sources */,
+				5170772C2474B70C008FE476 /* Router.swift in Sources */,
+				5170772A2474B6FE008FE476 /* Routable.swift in Sources */,
+				5170771C2474A939008FE476 /* TabBarItemSupportable.swift in Sources */,
+				517077352474BC2F008FE476 /* MainFlowCoordinator.swift in Sources */,
+				517077282474B5D1008FE476 /* ServiceAssembly.swift in Sources */,
+				51D2A25E2474F0A7005EE92D /* ProfileViewController.swift in Sources */,
 				51CAD833247234BD0096E937 /* model_cpm.mlmodel in Sources */,
+				517077432474C572008FE476 /* ExerciseCoordinator.swift in Sources */,
+				517077412474C2F0008FE476 /* Presentable.swift in Sources */,
+				51D2A2562474CD44005EE92D /* ProfileCoordinator.swift in Sources */,
 				51CAD82E24722A800096E937 /* BaseController.swift in Sources */,
+				517077182474A6F9008FE476 /* FinishFlowSupportable.swift in Sources */,
 				51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */,
 				51CAD83D2472350C0096E937 /* MovingAverageFilter.swift in Sources */,
+				5170771A2474A884008FE476 /* AppFlowCoordinator.swift in Sources */,
+				517077332474BC27008FE476 /* AuthFlowCoordinator.swift in Sources */,
+				5170774B2474C7C1008FE476 /* ExercisesListViewController.swift in Sources */,
+				5170773F2474C2B9008FE476 /* AuthModulesFactory.swift in Sources */,
 				511CA784246F6353005D3325 /* AppDelegate.swift in Sources */,
+				517077162474A6E4008FE476 /* Coordinatable.swift in Sources */,
 				51CAD839247234EF0096E937 /* VideoCapture.swift in Sources */,
+				5170773C2474C2A0008FE476 /* AuthViewController.swift in Sources */,
 				511CA786246F6353005D3325 /* SceneDelegate.swift in Sources */,
 				51CAD837247234E10096E937 /* PredictedPoint.swift in Sources */,
-				51CAD830247233F90096E937 /* CameraViewController.swift in Sources */,
+				5170774F2474C820008FE476 /* ExerciseProcessViewController.swift in Sources */,
+				517077242474B50F008FE476 /* DefaultsStorage.swift in Sources */,
+				51D2A2592474EBEE005EE92D /* R.generated.swift in Sources */,
+				517077262474B58F008FE476 /* ServiceLocator.swift in Sources */,
+				5170771E2474B4A7008FE476 /* CoordinatorFactory.swift in Sources */,
+				517077482474C75C008FE476 /* ExerciseModulesFactory.swift in Sources */,
 				51CAD83B247235040096E937 /* HeatmapPostProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,14 +566,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		511CA78B246F6353005D3325 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				511CA78C246F6353005D3325 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		511CA790246F6357005D3325 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -456,11 +693,12 @@
 		};
 		511CA7A2246F6357005D3325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 776F5A81878CBAAB2FC2F8BB /* Pods-AI Fitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZU2FDU5KQ;
-				INFOPLIST_FILE = "AI Fitness/Common/Info.plist";
+				INFOPLIST_FILE = "AI Fitness/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,11 +713,12 @@
 		};
 		511CA7A3246F6357005D3325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F3631BC8978D1A624708D1C /* Pods-AI Fitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZU2FDU5KQ;
-				INFOPLIST_FILE = "AI Fitness/Common/Info.plist";
+				INFOPLIST_FILE = "AI Fitness/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -494,6 +733,7 @@
 		};
 		511CA7A5246F6357005D3325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4951D307B42F4AD903E2481 /* Pods-AI FitnessTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +756,7 @@
 		};
 		511CA7A6246F6357005D3325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71268A7B4E9A29CA4E5F09DF /* Pods-AI FitnessTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
