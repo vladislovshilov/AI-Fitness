@@ -26,10 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             start()
-//            let coordinatorFactory = CoordinatorFactory()
-//            let applicationCoordinator = AppFlowCoordinator(window: window,
-//                                                            coordinatorFactory: coordinatorFactory)
-//            applicationCoordinator.start()
         }
     }
 
