@@ -36,16 +36,23 @@ extension ExerciseCoordinator: TabBarItemSupportable {
 
 extension ExerciseCoordinator: Coordinatable {
     func start() {
-        var view = moduleFactory.makeExerciseListView()
-        view.onExerciseTapHandler = {
+        var module = moduleFactory.makeExerciseListView()
+        module.viewModel.onExerciseSelectHandler = { exercise in
             self.showExerciseProcessView()
         }
         
-        router.setRootModule(view)
+        router.setRootModule(module.view)
     }
     
     private func showExerciseProcessView() {
-        let view = moduleFactory.makeExerciseProcessView()
-        router.push(view, animated: true)
+        var view = moduleFactory.makeExerciseProcessView()
+        view.onFinishHandler = {
+            self.router.dismissModule(animated: true)
+        }
+        view.onCancelHandler = {
+            self.router.dismissModule(animated: true)
+        }
+        
+        router.present(view, animated: true)
     }
 }

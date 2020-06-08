@@ -24,6 +24,7 @@ final class Router: NSObject, Routable {
     //MARK: Routable
     func present(_ module: Presentable?, animated: Bool) {
         guard let controller = module?.toPresent else { return }
+        controller.modalPresentationStyle = .fullScreen
         rootController?.present(controller, animated: animated, completion: nil)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ICoordinatorFactory {
+protocol ICoordinatorBuilder {
     func makeAuthorizationCoordinator(router: Routable) -> Coordinatable & FinishFlowSupportable
     func makeMainCoordinator(tabController: UITabBarController) -> Coordinatable & FinishFlowSupportable
 }
@@ -16,7 +16,7 @@ protocol ICoordinatorFactory {
 private typealias ChildCoordinator = (coordinator: Coordinatable & TabBarItemSupportable,
                                       navigation: UINavigationController)
 
-final class CoordinatorFactory: ICoordinatorFactory {
+final class CoordinatorBuilder: ICoordinatorBuilder {
     func makeAuthorizationCoordinator(router: Routable) -> Coordinatable & FinishFlowSupportable {
         let moduleFactory = AuthModulesFactory()
         return AuthorizationCoordinator(factory: moduleFactory, router: router)

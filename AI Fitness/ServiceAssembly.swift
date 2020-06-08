@@ -14,5 +14,8 @@ final class ServicesAssembly {
     static func register() {
         let defaults = DefaultsStorage()
         ServiceLocator.shared.register(defaults as IDefaultsStorage)
+        
+        let screenOrientationService = ScreenOrientationService()
+        ServiceLocator.shared.register(screenOrientationService as IScreenOrientationService)
     }
 }

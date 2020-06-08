@@ -10,7 +10,12 @@ import UIKit
 import CoreMedia
 import Vision
 
-class ExerciseProcessViewController: BaseController {
+protocol ExerciseProcessOutput {
+    var onFinishHandler: (() -> Void)? { get set }
+    var onCancelHandler: (() -> Void)? { get set }
+}
+
+class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     // MARK: - IBOutlets
     @IBOutlet private weak var videoPreview: UIView!
     @IBOutlet private weak var jointView: DrawingJointView!
@@ -18,10 +23,8 @@ class ExerciseProcessViewController: BaseController {
     @IBOutlet private var capturedJointConfidenceLabels: [UILabel]!
     @IBOutlet private var capturedJointBGViews: [UIView]!
     
-    private lazy var captureBarItem = UIBarButtonItem(title: "Capture",
-                                                      style: .plain,
-                                                      target: self,
-                                                      action: #selector(tapCapture))
+    var onFinishHandler: (() -> Void)?
+    var onCancelHandler: (() -> Void)?
     
     private var capturedPointsArray: [[CapturedPoint?]?] = []
     
@@ -42,10 +45,21 @@ class ExerciseProcessViewController: BaseController {
     private var postProcessor: HeatmapPostProcessor = HeatmapPostProcessor()
     private var mvfilters: [MovingAverageFilter] = []
     
+    private var screenOrientationService: IScreenOrientationService
+    
+    init(screenOrientationService: IScreenOrientationService) {
+        self.screenOrientationService = screenOrientationService
+        super.init(nibName: nil, bundle: nil)
+        
+        screenOrientationService.changeLockedInterfaceOrientation(.landscapeRight)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = captureBarItem
-        
         // setup the drawing views
         setUpCapturedJointView()
         
@@ -56,15 +70,98 @@ class ExerciseProcessViewController: BaseController {
         setUpCamera()
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeRight
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.videoCapture.start()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        resizePreviewLayer()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.videoCapture.stop()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        screenOrientationService.changeLockedInterfaceOrientation(.portrait)
+    }
+    
+    // MARK: - IBActions's
+    
+    @IBAction func captureButtonDidPress(_ sender: Any) {
+        capturedIndex = 2
+        let head = PredictedPoint(maxPoint: .init(x: 0.53368055555555558,
+                                                  y: 0.23020833333333334),
+                                  maxConfidence: 2.16162109375)
+        let neck = PredictedPoint(maxPoint: .init(x: 0.53368055555555558, y: 0.42465277777777785),
+                                  maxConfidence: 1.099365234375)
+        let r1 = PredictedPoint(maxPoint: .init(x: 0.68645833333333337, y: 0.43854166666666669),
+                                maxConfidence: 0.5916748046875)
+        let r2 = PredictedPoint(maxPoint: .init(x: 0.68645833333333337, y: 0.60520833333333337),
+                                maxConfidence: 0.44671630859375)
+        let r3 = PredictedPoint(maxPoint: .init(x: 0.68923611111111116, y: 0.66076388888888895),
+                                maxConfidence: 0.0670013427734375)
+        let l1 = PredictedPoint(maxPoint: .init(x: 0.40868055555555547, y: 0.48020833333333331),
+                                maxConfidence: 1.68994140625)
+        let l2 = PredictedPoint(maxPoint: .init(x: 0.38090277777777773, y: 0.68854166666666663),
+                                maxConfidence: 0.6737060546875)
+        let l3 = PredictedPoint(maxPoint: .init(x: 0.41701388888888884, y: 0.69409722222222215),
+                                maxConfidence: 0.187255859375)
+        let predictedPoints = [head, neck, r1, r2, r3, l1, l2, l3, nil, nil, nil, nil, nil ,nil]
+
+        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
+            guard let predictedPoint = predictedPoint else { return nil }
+            return CapturedPoint(predictedPoint: predictedPoint)
+        }
+
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: capturedPoints)
+        UserDefaults.standard.set(encodedData, forKey: "points-\(capturedIndex)")
+        print(UserDefaults.standard.synchronize())
+        
+        
+        
+//        let currentIndex = capturedIndex % capturedJointViews.count
+//        let capturedJointView = capturedJointViews[currentIndex]
+//
+//        let predictedPoints = jointView.bodyPoints
+//        capturedJointView.bodyPoints = predictedPoints
+//        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
+//            guard let predictedPoint = predictedPoint else { return nil }
+//            return CapturedPoint(predictedPoint: predictedPoint)
+//        }
+//        capturedPointsArray[currentIndex] = capturedPoints
+//
+//        let encodedData = NSKeyedArchiver.archivedData(withRootObject: capturedPoints)
+//        UserDefaults.standard.set(encodedData, forKey: "points-\(currentIndex)")
+//        print(UserDefaults.standard.synchronize())
+//
+//        capturedIndex += 1
+    }
+    
+    @IBAction func finishButtonDidPress(_ sender: Any) {
+        onFinishHandler?()
+    }
+    
+    @IBAction func cancelButtonDidPress(_ sender: Any) {
+        onCancelHandler?()
+    }
+}
+
+// MARK: - Helper methods
+
+extension ExerciseProcessViewController {
     
     // MARK: - Setup Captured Joint View
     func setUpCapturedJointView() {
@@ -123,33 +220,8 @@ class ExerciseProcessViewController: BaseController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        resizePreviewLayer()
-    }
-    
     func resizePreviewLayer() {
         videoCapture.previewLayer?.frame = videoPreview.bounds
-    }
-    
-    // CAPTURE THE CURRENT POSE
-    @objc private func tapCapture() {
-        let currentIndex = capturedIndex % capturedJointViews.count
-        let capturedJointView = capturedJointViews[currentIndex]
-        
-        let predictedPoints = jointView.bodyPoints
-        capturedJointView.bodyPoints = predictedPoints
-        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
-            guard let predictedPoint = predictedPoint else { return nil }
-            return CapturedPoint(predictedPoint: predictedPoint)
-        }
-        capturedPointsArray[currentIndex] = capturedPoints
-        
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: capturedPoints)
-        UserDefaults.standard.set(encodedData, forKey: "points-\(currentIndex)")
-        print(UserDefaults.standard.synchronize())
-        
-        capturedIndex += 1
     }
 }
 

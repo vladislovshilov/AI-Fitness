@@ -3,7 +3,7 @@
 //  AI Fitness
 //
 //  Created by Vlados iOS on 5/20/20.
-//  Copyright © 2020 Vladislav Shilov. All rights reserved.
+//  Copyright © 2020 Vladislav Shiov. All rights reserved.
 //
 
 import UIKit

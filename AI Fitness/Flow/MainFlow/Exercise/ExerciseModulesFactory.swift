@@ -9,16 +9,18 @@
 import Foundation
 
 protocol IExerciseModulesFactory {
-    func makeExerciseListView() -> Presentable & ExercisesListOutput
-    func makeExerciseProcessView() -> Presentable
+    func makeExerciseListView() -> (view: Presentable, viewModel: IExercisesListViewModelOutput)
+    func makeExerciseProcessView() -> Presentable & ExerciseProcessOutput
 }
 
 final class ExerciseModulesFactory: IExerciseModulesFactory {
-    func makeExerciseListView() -> Presentable & ExercisesListOutput {
-        return ExercisesListViewController(nibName: nil, bundle: nil)
+    func makeExerciseListView() -> (view: Presentable, viewModel: IExercisesListViewModelOutput) {
+        let viewModel = ExercisesListViewModel()
+        let view = ExercisesListViewController(viewModel: viewModel)
+        return (view: view, viewModel: viewModel)
     }
     
-    func makeExerciseProcessView() -> Presentable {
-        return ExerciseProcessViewController(nibName: nil, bundle: nil)
+    func makeExerciseProcessView() -> Presentable & ExerciseProcessOutput {
+        return ExerciseProcessViewController(screenOrientationService: ServiceLocator.shared.resolve())
     }
 }

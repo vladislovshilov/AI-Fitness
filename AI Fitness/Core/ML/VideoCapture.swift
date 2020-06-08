@@ -56,7 +56,7 @@ public class VideoCapture: NSObject {
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspect
-        previewLayer.connection?.videoOrientation = .portrait
+        previewLayer.connection?.videoOrientation = .landscapeRight
         self.previewLayer = previewLayer
         
         let settings: [String : Any] = [
@@ -72,7 +72,7 @@ public class VideoCapture: NSObject {
         
         // We want the buffers to be in portrait orientation otherwise they are
         // rotated by 90 degrees. Need to set this _after_ addOutput()!
-        videoOutput.connection(with: AVMediaType.video)?.videoOrientation = .portrait
+        videoOutput.connection(with: AVMediaType.video)?.videoOrientation = .landscapeRight
         
         captureSession.commitConfiguration()
         
@@ -99,9 +99,7 @@ public class VideoCapture: NSObject {
 
 extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // Because lowering the capture device's FPS looks ugly in the preview,
-        // we capture at full speed but only call the delegate at its desired
-        // framerate.
+
         let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
         let deltaTime = timestamp - lastTimestamp
         if deltaTime >= CMTimeMake(value: 1, timescale: Int32(fps)) {

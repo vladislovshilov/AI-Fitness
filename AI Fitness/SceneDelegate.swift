@@ -10,14 +10,14 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    private let coordinatorFactory: ICoordinatorFactory
+    private let coordinatorFactory: ICoordinatorBuilder
     private let defaultStorage: IDefaultsStorage
 
     var window: UIWindow?
 
     override init() {
         ServicesAssembly.register()
-        self.coordinatorFactory = CoordinatorFactory()
+        self.coordinatorFactory = CoordinatorBuilder()
         self.defaultStorage = ServiceLocator.shared.resolve()
         super.init()
     }
@@ -64,10 +64,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: Coordinatable {
     func start() {
-        guard defaultStorage.isLogin else {
-                performAuthorizationFlow()
-                return
-        }
+//        guard defaultStorage.isLogin else {
+//                performAuthorizationFlow()
+//                return
+//        }
         
         performMainFlow()
     }
