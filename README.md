@@ -1,6 +1,6 @@
 # AI-Fitness
-ai fitness application
+AI Fitness application - helps people to improve their exercise process
 
-first prototype of ui:
+UI prototype: 
 
-![example pic](https://i.ibb.co/6nWDGb3/Screen-Shot-2020-05-18-at-04-04-20.png)
+![example pic](https://i.ibb.co/NYqcLfb/Screen-Shot-2020-05-22-at-07-36-07.png)
