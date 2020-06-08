@@ -69,6 +69,7 @@ extension SceneDelegate: Coordinatable {
 //                return
 //        }
         
+        PosesGenerator.generatePoses()
         performMainFlow()
     }
 }

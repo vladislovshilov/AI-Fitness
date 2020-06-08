@@ -17,7 +17,7 @@ class ScreenOrientationService: IScreenOrientationService {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        appDelegate.lockedOrientation = orientation
+//        appDelegate.lockedOrientation = orientation
         
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()

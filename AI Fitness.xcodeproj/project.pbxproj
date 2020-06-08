@@ -52,6 +52,9 @@
 		51D31BDC248DABCF00AD1D5A /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D31BDA248DABCF00AD1D5A /* ExerciseCell.swift */; };
 		51D31BDD248DABCF00AD1D5A /* ExerciseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D31BDB248DABCF00AD1D5A /* ExerciseCell.xib */; };
 		51D31BDF248DBE0A00AD1D5A /* model_hourglass.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51D31BDE248DBE0A00AD1D5A /* model_hourglass.mlmodel */; };
+		51D31BE4248E7FF500AD1D5A /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = 51D31BE3248E7FF500AD1D5A /* exercises.json */; };
+		51D31BE9248E80DA00AD1D5A /* PosesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */; };
+		51D31BEC248E8B6C00AD1D5A /* follow next pose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */; };
 		B8F216674DDE040618C58A75 /* libPods-AI FitnessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6211A60AA53C7B622EB0EA /* libPods-AI FitnessTests.a */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +117,11 @@
 		51D31BDA248DABCF00AD1D5A /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		51D31BDB248DABCF00AD1D5A /* ExerciseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCell.xib; sourceTree = "<group>"; };
 		51D31BDE248DBE0A00AD1D5A /* model_hourglass.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = model_hourglass.mlmodel; sourceTree = "<group>"; };
+		51D31BE2248E755400AD1D5A /* ExerciseProcessViewController copy.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "ExerciseProcessViewController copy.xib"; sourceTree = "<group>"; };
+		51D31BE3248E7FF500AD1D5A /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
+		51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosesGenerator.swift; sourceTree = "<group>"; };
+		51D31BEA248E87D300AD1D5A /* ExerciseProcessViewController copy 2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "ExerciseProcessViewController copy 2.xib"; sourceTree = "<group>"; };
+		51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "follow next pose.mp3"; sourceTree = "<group>"; };
 		6F3631BC8978D1A624708D1C /* Pods-AI Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.release.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		71268A7B4E9A29CA4E5F09DF /* Pods-AI FitnessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI FitnessTests.release.xcconfig"; path = "Target Support Files/Pods-AI FitnessTests/Pods-AI FitnessTests.release.xcconfig"; sourceTree = "<group>"; };
 		776F5A81878CBAAB2FC2F8BB /* Pods-AI Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.debug.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,13 +232,8 @@
 		517077212474B4FE008FE476 /* ML */ = {
 			isa = PBXGroup;
 			children = (
-				51D31BDE248DBE0A00AD1D5A /* model_hourglass.mlmodel */,
-				51CAD832247234BD0096E937 /* model_cpm.mlmodel */,
-				51CAD834247234CC0096E937 /* DrawingJointView.swift */,
-				51CAD838247234EF0096E937 /* VideoCapture.swift */,
-				51CAD836247234E10096E937 /* PredictedPoint.swift */,
-				51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */,
-				51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */,
+				51D31BE5248E801400AD1D5A /* common */,
+				51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -296,6 +299,8 @@
 			children = (
 				5170774D2474C820008FE476 /* ExerciseProcessViewController.swift */,
 				5170774E2474C820008FE476 /* ExerciseProcessViewController.xib */,
+				51D31BE2248E755400AD1D5A /* ExerciseProcessViewController copy.xib */,
+				51D31BEA248E87D300AD1D5A /* ExerciseProcessViewController copy 2.xib */,
 			);
 			path = EcerciseProcess;
 			sourceTree = "<group>";
@@ -307,6 +312,8 @@
 				51252863246F647E002D1F67 /* Colors.xcassets */,
 				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
 				511CA793246F6357005D3325 /* Info.plist */,
+				51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */,
+				51D31BE3248E7FF500AD1D5A /* exercises.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -359,6 +366,20 @@
 				51D31BDB248DABCF00AD1D5A /* ExerciseCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		51D31BE5248E801400AD1D5A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				51D31BDE248DBE0A00AD1D5A /* model_hourglass.mlmodel */,
+				51CAD832247234BD0096E937 /* model_cpm.mlmodel */,
+				51CAD834247234CC0096E937 /* DrawingJointView.swift */,
+				51CAD838247234EF0096E937 /* VideoCapture.swift */,
+				51CAD836247234E10096E937 /* PredictedPoint.swift */,
+				51CAD83A247235040096E937 /* HeatmapPostProcessor.swift */,
+				51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		7344DF8EA8EE2820175C688C /* Frameworks */ = {
@@ -453,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D31BEC248E8B6C00AD1D5A /* follow next pose.mp3 in Resources */,
 				511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */,
 				51D31BDD248DABCF00AD1D5A /* ExerciseCell.xib in Resources */,
 				5170774C2474C7C1008FE476 /* ExercisesListViewController.xib in Resources */,
@@ -461,6 +483,7 @@
 				517077502474C820008FE476 /* ExerciseProcessViewController.xib in Resources */,
 				51252864246F647E002D1F67 /* Colors.xcassets in Resources */,
 				511CA78F246F6357005D3325 /* Assets.xcassets in Resources */,
+				51D31BE4248E7FF500AD1D5A /* exercises.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +563,7 @@
 				517077412474C2F0008FE476 /* Presentable.swift in Sources */,
 				51D2A2562474CD44005EE92D /* ProfileCoordinator.swift in Sources */,
 				51CAD82E24722A800096E937 /* BaseController.swift in Sources */,
+				51D31BE9248E80DA00AD1D5A /* PosesGenerator.swift in Sources */,
 				517077182474A6F9008FE476 /* FinishFlowSupportable.swift in Sources */,
 				51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */,
 				51CAD83D2472350C0096E937 /* MovingAverageFilter.swift in Sources */,
