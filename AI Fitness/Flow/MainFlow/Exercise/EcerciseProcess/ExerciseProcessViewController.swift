@@ -195,8 +195,11 @@ extension ExerciseProcessViewController {
         isFullyCompleted = true
         videoCapture.stop()
         playSound(.exerciseCompleted)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.dismiss(animated: true, completion: nil)
+        
+        let vc = ExerciseResultViewController()
+        vc.modalPresentationStyle = .fullScreen
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -331,7 +334,7 @@ extension ExerciseProcessViewController {
             self.capturedJointBGViews.backgroundColor = .clear
             if matchingRatio > 0.80 && maxMatchingRatio < matchingRatio {
                 guard self.isCompleted else { return }
-                if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime > Date().timeIntervalSince1970 && self.pose.remaningSets > 0 {
+                if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime > Date().timeIntervalSince1970 && matchingRatio > 0.90 && self.pose.remaningSets > 0 {
                     if self.shouldPlayMoveSlower {
                         self.shouldPlayMoveSlower = false
                         self.playSound(.moveSlower)

@@ -35,8 +35,8 @@ extension ExercisePose {
 }
 
 struct WeightPose: ExercisePose {
-    var remaningSets = 5
-    var numberOfSets = 5
+    var remaningSets = 2
+    var numberOfSets = 2
     var currentPoseIndex = 0
     var poses: [Pose]
     var currentPose: Pose {

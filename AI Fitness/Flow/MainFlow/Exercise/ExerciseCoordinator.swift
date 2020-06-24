@@ -38,7 +38,10 @@ extension ExerciseCoordinator: Coordinatable {
     func start() {
         var module = moduleFactory.makeExerciseListView()
         module.viewModel.onExerciseSelectHandler = { exercise in
-            self.showExerciseProcessView()
+            let vc = ExerciseResultViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.router.present(vc, animated: true)
+//            self.showExerciseProcessView()
 //            self.showExerciseDescriptionView()
         }
         

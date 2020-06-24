@@ -6,6 +6,7 @@ target 'AI Fitness' do
   #use_frameworks!
 
   pod 'R.swift'
+  pod 'UICircularProgressRing'
 
   target 'AI FitnessTests' do
     inherit! :search_paths
