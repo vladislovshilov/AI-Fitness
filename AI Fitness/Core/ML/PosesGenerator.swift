@@ -55,7 +55,7 @@ final class PosesGenerator {
         }
         
         return Pose(points: capturedPoints,
-                    poseChangeTime: 5)
+                    poseChangeTime: 3)
     }
     
     private static func generateWeight2Pose() -> Pose {
@@ -93,7 +93,7 @@ final class PosesGenerator {
         }
         
         return Pose(points: capturedPoints,
-                    poseChangeTime: 5)
+                    poseChangeTime: 3)
     }
     
     private static func generatePlankPose() {

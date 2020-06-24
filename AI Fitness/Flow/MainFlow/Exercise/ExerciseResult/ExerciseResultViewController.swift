@@ -15,7 +15,7 @@ class ExerciseResultViewController: UIViewController {
     @IBOutlet weak var congratsLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
-    var accuracyValue = 1
+    var accuracyValue = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()

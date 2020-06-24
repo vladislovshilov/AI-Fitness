@@ -67,6 +67,8 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
         }
     }
     
+    private var poseAchieveTime: TimeInterval = 0
+    
     init(screenOrientationService: IScreenOrientationService,
          pose: ExercisePose) {
         self.screenOrientationService = screenOrientationService
@@ -82,14 +84,14 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // setup the drawing views
+        timerValue = pose.currentPose.poseChangeTime
+        
         setUpCapturedJointView()
-        
-        // setup the model
         setUpModel()
-        
-        // setup camera
         setUpCamera()
+        
+        poseTimerStartTime = Date().timeIntervalSince1970
+        poseAchieveTime = poseTimerStartTime
     }
     
     override var shouldAutorotate: Bool {
@@ -179,10 +181,12 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
 //    }
     
     @IBAction private func finishButtonDidPress(_ sender: Any) {
+        stopExercise()
         onFinishHandler?()
     }
     
     @IBAction private func cancelButtonDidPress(_ sender: Any) {
+        stopExercise()
         onCancelHandler?()
     }
 }
@@ -190,14 +194,20 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
 // MARK: - Helper methods
 
 extension ExerciseProcessViewController {
-    private func completeExercise() {
+    private func stopExercise() {
         timer?.invalidate()
         isFullyCompleted = true
         videoCapture.stop()
         playSound(.exerciseCompleted)
+    }
+    
+    private func completeExercise() {
+        stopExercise()
         
         let vc = ExerciseResultViewController()
         vc.modalPresentationStyle = .fullScreen
+        vc.accuracyValue = pose.averageAccuracy
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.present(vc, animated: true, completion: nil)
         }
@@ -205,8 +215,6 @@ extension ExerciseProcessViewController {
     
     // MARK: - Setup Captured Joint View
     func setUpCapturedJointView() {
-        timerValue = pose.currentPose.poseChangeTime
-        
         postProcessor.onlyBust = true
         
         for capturedJointView in capturedJointViews {
@@ -216,7 +224,7 @@ extension ExerciseProcessViewController {
         
         capturedPointsArray = capturedJointViews.map { _ in return nil }
         
-        let poses = pose.nextPose()
+        let poses = pose.currentPose
         let capturedPoints = poses.points
         
         if self.pose.remaningSets <= 0 {
@@ -327,26 +335,15 @@ extension ExerciseProcessViewController {
             self.jointView.bodyPoints = predictedPoints
             
             var topCapturedJointBGView: UIView?
-            var maxMatchingRatio: CGFloat = 0
             
             let text = String(format: "%.2f%", matchingRatio*100)
             self.capturedJointConfidenceLabels.text = text
             self.capturedJointBGViews.backgroundColor = .clear
-            if matchingRatio > 0.80 && maxMatchingRatio < matchingRatio {
+            if matchingRatio > 0.80 {
                 guard self.isCompleted else { return }
-                if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime > Date().timeIntervalSince1970 && matchingRatio > 0.90 && self.pose.remaningSets > 0 {
-                    if self.shouldPlayMoveSlower {
-                        self.shouldPlayMoveSlower = false
-                        self.playSound(.moveSlower)
-                    }
-                    return
-                }
-                
                 self.isCompleted = false
-                print("Date - \(Date())")
-                print("become false")
+                self.poseAchieveTime = Date().timeIntervalSince1970
                 
-                self.poseTimerStartTime = Date().timeIntervalSince1970
                 self.moveFasterTiming = 5
                 self.timer?.invalidate()
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in
@@ -359,22 +356,39 @@ extension ExerciseProcessViewController {
                 RunLoop.current.add(self.timer!, forMode: .common)
                 self.timer?.tolerance = 0.2
                 
-                maxMatchingRatio = matchingRatios[0]
+                if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime > Date().timeIntervalSince1970  {
+                    self.shouldPlayMoveSlower = false
+                    self.playSound(.moveSlower)
+                    self.confirmNextPose()
+                   
+                    return
+                }
+
                 topCapturedJointBGView = self.capturedJointBGViews
                 
+                self.confirmNextPose()
                 self.playSound(.followNextPose)
-                self.setUpCapturedJointView()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.isCompleted = true
-                    self.shouldPlayMoveSlower = true
-                    print("Date - \(Date())")
-                    print("become true")
-                }
             }
             
             topCapturedJointBGView?.backgroundColor = UIColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 0.4)
             //            print(matchingRatios)
         }
         /* =================================================================== */
+    }
+    
+    private func confirmNextPose() {
+        let achieveTimeDelta = poseTimerStartTime + pose.currentPose.poseChangeTime - poseAchieveTime
+        let time = abs(achieveTimeDelta.rounded())
+        print("Achive delta \(time)")
+        pose.confirmPose(time: time)
+        let _ = pose.nextPose()
+        
+        poseTimerStartTime = Date().timeIntervalSince1970
+        
+        setUpCapturedJointView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isCompleted = true
+            self.shouldPlayMoveSlower = true
+        }
     }
 }
