@@ -21,8 +21,9 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     @IBOutlet private weak var videoPreview: UIView!
     @IBOutlet private weak var jointView: DrawingJointView!
     @IBOutlet private var capturedJointViews: [DrawingJointView]!
-    @IBOutlet private var capturedJointConfidenceLabels: [UILabel]!
-    @IBOutlet private var capturedJointBGViews: [UIView]!
+    @IBOutlet private var capturedJointConfidenceLabels: UILabel!
+    @IBOutlet private var capturedJointBGViews: UIView!
+    @IBOutlet private weak var timerLabel: UILabel!
     
     var onFinishHandler: (() -> Void)?
     var onCancelHandler: (() -> Void)?
@@ -31,11 +32,11 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     
     private var capturedIndex = 0
     
-    private var currentPoseIndex = 2
-    
     private var player: AVAudioPlayer?
     
     private var isCompleted = true
+    private var isFullyCompleted = false
+    private var shouldPlayMoveSlower = true
     
     // MARK: - AV Property
     private var videoCapture: VideoCapture!
@@ -54,8 +55,22 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     
     private var screenOrientationService: IScreenOrientationService
     
-    init(screenOrientationService: IScreenOrientationService) {
+    private var pose: ExercisePose
+    
+    private var timer: Timer?
+    private var poseTimerStartTime: TimeInterval = 0
+    private var moveFasterTiming: TimeInterval = 5
+    private var timerValue: TimeInterval = 5 {
+        didSet {
+            timerLabel.text = "\(timerValue.rounded())"
+            timerLabel.textColor = timerValue < 0 ? .red : .white
+        }
+    }
+    
+    init(screenOrientationService: IScreenOrientationService,
+         pose: ExercisePose) {
         self.screenOrientationService = screenOrientationService
+        self.pose = pose
         super.init(nibName: nil, bundle: nil)
         
 //        screenOrientationService.changeLockedInterfaceOrientation(.landscapeRight)
@@ -107,18 +122,31 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     
     // MARK: - Support methods
     
-    private func playFolowNextPoseSound() {
-        guard let url = Bundle.main.url(forResource: "follow next pose", withExtension: "mp3") else { return }
+    enum Sound {
+        case followNextPose, moveFaster, moveSlower, exerciseCompleted
+        
+        var resourceName: String {
+            switch self {
+            case .followNextPose:
+                return "follow next pose"
+            case .moveFaster:
+                return "move faster"
+            case .moveSlower:
+                return "move slower"
+            case .exerciseCompleted:
+                return "exercise completed"
+            }
+        }
+    }
+    
+    private func playSound(_ sound: Sound) {
+        guard let url = Bundle.main.url(forResource: sound.resourceName, withExtension: "mp3") else { return }
 
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            /* iOS 10 and earlier require the following line:
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
 
             guard let player = player else { return }
 
@@ -131,38 +159,7 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
     
     // MARK: - IBActions's
     
-    @IBAction func captureButtonDidPress(_ sender: Any) {
-        capturedIndex = 3
-        let head = PredictedPoint(maxPoint: .init(x: 0.53368055555555558,
-                                                  y: 0.23020833333333334),
-                                  maxConfidence: 2.16162109375)
-        let neck = PredictedPoint(maxPoint: .init(x: 0.53368055555555558, y: 0.42465277777777785),
-                                  maxConfidence: 1.099365234375)
-        let r1 = PredictedPoint(maxPoint: .init(x: 0.68645833333333337, y: 0.43854166666666669),
-                                maxConfidence: 0.5916748046875)
-        let r2 = PredictedPoint(maxPoint: .init(x: 0.68645833333333337, y: 0.60520833333333337),
-                                maxConfidence: 0.44671630859375)
-        let r3 = PredictedPoint(maxPoint: .init(x: 0.68923611111111116, y: 0.66076388888888895),
-                                maxConfidence: 0.0670013427734375)
-        let l1 = PredictedPoint(maxPoint: .init(x: 0.40868055555555547, y: 0.48020833333333331),
-                                maxConfidence: 1.68994140625)
-        let l2 = PredictedPoint(maxPoint: .init(x: 0.38090277777777773, y: 0.68854166666666663),
-                                maxConfidence: 0.6737060546875)
-        let l3 = PredictedPoint(maxPoint: .init(x: 0.41701388888888884, y: 0.69409722222222215),
-                                maxConfidence: 0.187255859375)
-        let predictedPoints = [head, neck, r1, r2, r3, l1, l2, l3, nil, nil, nil, nil, nil ,nil]
-
-        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
-            guard let predictedPoint = predictedPoint else { return nil }
-            return CapturedPoint(predictedPoint: predictedPoint)
-        }
-
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: capturedPoints)
-        UserDefaults.standard.set(encodedData, forKey: "points-\(capturedIndex)")
-        print(UserDefaults.standard.synchronize())
-        
-        
-        
+//    @IBAction func captureButtonDidPress(_ sender: Any) {
 //        let currentIndex = capturedIndex % capturedJointViews.count
 //        let capturedJointView = capturedJointViews[currentIndex]
 //
@@ -179,13 +176,13 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
 //        print(UserDefaults.standard.synchronize())
 //
 //        capturedIndex += 1
-    }
+//    }
     
-    @IBAction func finishButtonDidPress(_ sender: Any) {
+    @IBAction private func finishButtonDidPress(_ sender: Any) {
         onFinishHandler?()
     }
     
-    @IBAction func cancelButtonDidPress(_ sender: Any) {
+    @IBAction private func cancelButtonDidPress(_ sender: Any) {
         onCancelHandler?()
     }
 }
@@ -193,9 +190,20 @@ class ExerciseProcessViewController: BaseController, ExerciseProcessOutput {
 // MARK: - Helper methods
 
 extension ExerciseProcessViewController {
+    private func completeExercise() {
+        timer?.invalidate()
+        isFullyCompleted = true
+        videoCapture.stop()
+        playSound(.exerciseCompleted)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     // MARK: - Setup Captured Joint View
     func setUpCapturedJointView() {
+        timerValue = pose.currentPose.poseChangeTime
+        
         postProcessor.onlyBust = true
         
         for capturedJointView in capturedJointViews {
@@ -205,19 +213,24 @@ extension ExerciseProcessViewController {
         
         capturedPointsArray = capturedJointViews.map { _ in return nil }
         
-        if let data = UserDefaults.standard.data(forKey: "points-\(currentPoseIndex)"),
-            let capturedPoints = NSKeyedUnarchiver.unarchiveObject(with: data) as? [CapturedPoint?] {
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.capturedPointsArray[0] = capturedPoints
-                self.capturedJointViews[0].bodyPoints = capturedPoints.map { capturedPoint in
-                    if let capturedPoint = capturedPoint { return PredictedPoint(capturedPoint: capturedPoint) }
-                    else { return nil }
-                }
-            }, completion: { _ in
-//                self.isCompleted = true
-            })
+        let poses = pose.nextPose()
+        let capturedPoints = poses.points
+        
+        if self.pose.remaningSets <= 0 {
+            self.isCompleted = true
+            self.completeExercise()
+            return
         }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.capturedPointsArray[0] = capturedPoints
+            self.capturedJointViews[0].bodyPoints = capturedPoints.map { capturedPoint in
+                if let capturedPoint = capturedPoint { return PredictedPoint(capturedPoint: capturedPoint) }
+                else { return nil }
+            }
+        }, completion: { _ in
+            //                self.isCompleted = true
+        })
     }
     
     // MARK: - Setup Core ML
@@ -277,6 +290,7 @@ extension ExerciseProcessViewController {
     
     // MARK: - Postprocessing
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
+        guard !isFullyCompleted else { return }
         guard let observations = request.results as? [VNCoreMLFeatureValueObservation],
             let heatmaps = observations.first?.featureValue.multiArrayValue else { return }
         
@@ -305,35 +319,54 @@ extension ExerciseProcessViewController {
         /* =================================================================== */
         /* ======================= display the results ======================= */
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, let matchingRatio = matchingRatios.first else { return }
             // draw line
             self.jointView.bodyPoints = predictedPoints
             
             var topCapturedJointBGView: UIView?
             var maxMatchingRatio: CGFloat = 0
             
-            let text = String(format: "%.2f%", matchingRatios[0]*100)
-            self.capturedJointConfidenceLabels[0].text = text
-            self.capturedJointBGViews[0].backgroundColor = .clear
-            if matchingRatios[0] > 0.80 && maxMatchingRatio < matchingRatios[0] {
+            let text = String(format: "%.2f%", matchingRatio*100)
+            self.capturedJointConfidenceLabels.text = text
+            self.capturedJointBGViews.backgroundColor = .clear
+            if matchingRatio > 0.80 && maxMatchingRatio < matchingRatio {
                 guard self.isCompleted else { return }
+                if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime > Date().timeIntervalSince1970 && self.pose.remaningSets > 0 {
+                    if self.shouldPlayMoveSlower {
+                        self.shouldPlayMoveSlower = false
+                        self.playSound(.moveSlower)
+                    }
+                    return
+                }
+                
                 self.isCompleted = false
                 print("Date - \(Date())")
                 print("become false")
                 
-                maxMatchingRatio = matchingRatios[0]
-                topCapturedJointBGView = self.capturedJointBGViews[0]
-                
-                self.currentPoseIndex = self.currentPoseIndex == 2 ? 3 : 2
-                self.playFolowNextPoseSound()
-                DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-                    self.setUpCapturedJointView()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.isCompleted = true
-                        print("Date - \(Date())")
-                        print("become true")
+                self.poseTimerStartTime = Date().timeIntervalSince1970
+                self.moveFasterTiming = 5
+                self.timer?.invalidate()
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in
+                    self.timerValue = self.poseTimerStartTime + self.pose.currentPose.poseChangeTime - Date().timeIntervalSince1970
+                    if self.poseTimerStartTime + self.pose.currentPose.poseChangeTime + self.moveFasterTiming < Date().timeIntervalSince1970 {
+                        self.moveFasterTiming += 5
+                        self.playSound(.moveFaster)
                     }
                 })
+                RunLoop.current.add(self.timer!, forMode: .common)
+                self.timer?.tolerance = 0.2
+                
+                maxMatchingRatio = matchingRatios[0]
+                topCapturedJointBGView = self.capturedJointBGViews
+                
+                self.playSound(.followNextPose)
+                self.setUpCapturedJointView()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.isCompleted = true
+                    self.shouldPlayMoveSlower = true
+                    print("Date - \(Date())")
+                    print("become true")
+                }
             }
             
             topCapturedJointBGView?.backgroundColor = UIColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 0.4)

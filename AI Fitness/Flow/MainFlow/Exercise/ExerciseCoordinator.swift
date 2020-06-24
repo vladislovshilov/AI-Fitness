@@ -39,9 +39,15 @@ extension ExerciseCoordinator: Coordinatable {
         var module = moduleFactory.makeExerciseListView()
         module.viewModel.onExerciseSelectHandler = { exercise in
             self.showExerciseProcessView()
+//            self.showExerciseDescriptionView()
         }
         
         router.setRootModule(module.view)
+    }
+    
+    private func showExerciseDescriptionView() {
+        let vc = ExerciseDescriptionViewController()
+        router.push(vc, animated: true)
     }
     
     private func showExerciseProcessView() {

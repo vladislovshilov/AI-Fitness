@@ -15,6 +15,9 @@
 		511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CA790246F6357005D3325 /* LaunchScreen.storyboard */; };
 		511CA79D246F6357005D3325 /* AI_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CA79C246F6357005D3325 /* AI_FitnessTests.swift */; };
 		51252864246F647E002D1F67 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51252863246F647E002D1F67 /* Colors.xcassets */; };
+		5164436C24A2C0F100C264DF /* move slower.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5164436B24A2C0F100C264DF /* move slower.mp3 */; };
+		5164436E24A2C0F400C264DF /* move faster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5164436D24A2C0F400C264DF /* move faster.mp3 */; };
+		5164437024A2CB5000C264DF /* exercise completed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5164436F24A2CB5000C264DF /* exercise completed.mp3 */; };
 		517077162474A6E4008FE476 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077152474A6E4008FE476 /* Coordinatable.swift */; };
 		517077182474A6F9008FE476 /* FinishFlowSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517077172474A6F9008FE476 /* FinishFlowSupportable.swift */; };
 		5170771C2474A939008FE476 /* TabBarItemSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170771B2474A939008FE476 /* TabBarItemSupportable.swift */; };
@@ -55,6 +58,9 @@
 		51D31BE4248E7FF500AD1D5A /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = 51D31BE3248E7FF500AD1D5A /* exercises.json */; };
 		51D31BE9248E80DA00AD1D5A /* PosesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */; };
 		51D31BEC248E8B6C00AD1D5A /* follow next pose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */; };
+		51F2F1D6249FD82300BA1F84 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F1D4249FD82300BA1F84 /* ExerciseDescriptionViewController.swift */; };
+		51F2F1D7249FD82300BA1F84 /* ExerciseDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51F2F1D5249FD82300BA1F84 /* ExerciseDescriptionViewController.xib */; };
+		51F2F1D9249FE7B100BA1F84 /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F1D8249FE7B100BA1F84 /* Pose.swift */; };
 		B8F216674DDE040618C58A75 /* libPods-AI FitnessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6211A60AA53C7B622EB0EA /* libPods-AI FitnessTests.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +86,9 @@
 		511CA79C246F6357005D3325 /* AI_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_FitnessTests.swift; sourceTree = "<group>"; };
 		511CA79E246F6357005D3325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51252863246F647E002D1F67 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		5164436B24A2C0F100C264DF /* move slower.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "move slower.mp3"; path = "../../../../../move slower.mp3"; sourceTree = "<group>"; };
+		5164436D24A2C0F400C264DF /* move faster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "move faster.mp3"; path = "../../../../../move faster.mp3"; sourceTree = "<group>"; };
+		5164436F24A2CB5000C264DF /* exercise completed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "exercise completed.mp3"; path = "../../../../../exercise completed.mp3"; sourceTree = "<group>"; };
 		517077152474A6E4008FE476 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		517077172474A6F9008FE476 /* FinishFlowSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishFlowSupportable.swift; sourceTree = "<group>"; };
 		5170771B2474A939008FE476 /* TabBarItemSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemSupportable.swift; sourceTree = "<group>"; };
@@ -122,6 +131,9 @@
 		51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosesGenerator.swift; sourceTree = "<group>"; };
 		51D31BEA248E87D300AD1D5A /* ExerciseProcessViewController copy 2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "ExerciseProcessViewController copy 2.xib"; sourceTree = "<group>"; };
 		51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "follow next pose.mp3"; sourceTree = "<group>"; };
+		51F2F1D4249FD82300BA1F84 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
+		51F2F1D5249FD82300BA1F84 /* ExerciseDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseDescriptionViewController.xib; sourceTree = "<group>"; };
+		51F2F1D8249FE7B100BA1F84 /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
 		6F3631BC8978D1A624708D1C /* Pods-AI Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.release.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		71268A7B4E9A29CA4E5F09DF /* Pods-AI FitnessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI FitnessTests.release.xcconfig"; path = "Target Support Files/Pods-AI FitnessTests/Pods-AI FitnessTests.release.xcconfig"; sourceTree = "<group>"; };
 		776F5A81878CBAAB2FC2F8BB /* Pods-AI Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Fitness.debug.xcconfig"; path = "Target Support Files/Pods-AI Fitness/Pods-AI Fitness.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +246,7 @@
 			children = (
 				51D31BE5248E801400AD1D5A /* common */,
 				51D31BE8248E80DA00AD1D5A /* PosesGenerator.swift */,
+				51F2F1D8249FE7B100BA1F84 /* Pose.swift */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -313,6 +326,9 @@
 				511CA790246F6357005D3325 /* LaunchScreen.storyboard */,
 				511CA793246F6357005D3325 /* Info.plist */,
 				51D31BEB248E8B6B00AD1D5A /* follow next pose.mp3 */,
+				5164436D24A2C0F400C264DF /* move faster.mp3 */,
+				5164436F24A2CB5000C264DF /* exercise completed.mp3 */,
+				5164436B24A2C0F100C264DF /* move slower.mp3 */,
 				51D31BE3248E7FF500AD1D5A /* exercises.json */,
 			);
 			path = Resources;
@@ -334,6 +350,7 @@
 				517077422474C572008FE476 /* ExerciseCoordinator.swift */,
 				517077472474C75C008FE476 /* ExerciseModulesFactory.swift */,
 				517077452474C705008FE476 /* ExercisesList */,
+				51F2F1D3249FD80600BA1F84 /* ExerciseDescription */,
 				517077462474C718008FE476 /* EcerciseProcess */,
 			);
 			path = Exercise;
@@ -380,6 +397,15 @@
 				51CAD83C2472350C0096E937 /* MovingAverageFilter.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		51F2F1D3249FD80600BA1F84 /* ExerciseDescription */ = {
+			isa = PBXGroup;
+			children = (
+				51F2F1D4249FD82300BA1F84 /* ExerciseDescriptionViewController.swift */,
+				51F2F1D5249FD82300BA1F84 /* ExerciseDescriptionViewController.xib */,
+			);
+			path = ExerciseDescription;
 			sourceTree = "<group>";
 		};
 		7344DF8EA8EE2820175C688C /* Frameworks */ = {
@@ -474,9 +500,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5164436E24A2C0F400C264DF /* move faster.mp3 in Resources */,
+				51F2F1D7249FD82300BA1F84 /* ExerciseDescriptionViewController.xib in Resources */,
 				51D31BEC248E8B6C00AD1D5A /* follow next pose.mp3 in Resources */,
 				511CA792246F6357005D3325 /* LaunchScreen.storyboard in Resources */,
 				51D31BDD248DABCF00AD1D5A /* ExerciseCell.xib in Resources */,
+				5164437024A2CB5000C264DF /* exercise completed.mp3 in Resources */,
+				5164436C24A2C0F100C264DF /* move slower.mp3 in Resources */,
 				5170774C2474C7C1008FE476 /* ExercisesListViewController.xib in Resources */,
 				51D2A25F2474F0A7005EE92D /* ProfileViewController.xib in Resources */,
 				5170773D2474C2A0008FE476 /* AuthViewController.xib in Resources */,
@@ -555,6 +585,7 @@
 				51D31BDF248DBE0A00AD1D5A /* model_hourglass.mlmodel in Sources */,
 				5170771C2474A939008FE476 /* TabBarItemSupportable.swift in Sources */,
 				517077352474BC2F008FE476 /* MainFlowCoordinator.swift in Sources */,
+				51F2F1D6249FD82300BA1F84 /* ExerciseDescriptionViewController.swift in Sources */,
 				51D31BD8248DA8BF00AD1D5A /* ExercisesListViewModel.swift in Sources */,
 				517077282474B5D1008FE476 /* ServiceAssembly.swift in Sources */,
 				51D2A25E2474F0A7005EE92D /* ProfileViewController.swift in Sources */,
@@ -563,6 +594,7 @@
 				517077412474C2F0008FE476 /* Presentable.swift in Sources */,
 				51D2A2562474CD44005EE92D /* ProfileCoordinator.swift in Sources */,
 				51CAD82E24722A800096E937 /* BaseController.swift in Sources */,
+				51F2F1D9249FE7B100BA1F84 /* Pose.swift in Sources */,
 				51D31BE9248E80DA00AD1D5A /* PosesGenerator.swift in Sources */,
 				517077182474A6F9008FE476 /* FinishFlowSupportable.swift in Sources */,
 				51CAD835247234CC0096E937 /* DrawingJointView.swift in Sources */,

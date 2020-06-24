@@ -21,6 +21,9 @@ final class ExerciseModulesFactory: IExerciseModulesFactory {
     }
     
     func makeExerciseProcessView() -> Presentable & ExerciseProcessOutput {
-        return ExerciseProcessViewController(screenOrientationService: ServiceLocator.shared.resolve())
+        let weightPose = PosesGenerator.generateWeightPose()
+        return ExerciseProcessViewController(
+            screenOrientationService: ServiceLocator.shared.resolve(),
+            pose: weightPose)
     }
 }

@@ -9,12 +9,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExerciseProcessViewController" customModule="AI_Fitness" customModuleProvider="target">
             <connections>
+                <outlet property="capturedJointBGViews" destination="hHC-RS-u61" id="2lr-3S-N7A"/>
+                <outlet property="capturedJointConfidenceLabels" destination="tdt-1b-dRI" id="b3L-Z7-LB2"/>
                 <outlet property="jointView" destination="KIa-1X-vzi" id="WLA-7j-iYW"/>
+                <outlet property="timerLabel" destination="ooS-hx-sAO" id="ogr-Jk-7p6"/>
                 <outlet property="videoPreview" destination="IrO-I6-fyq" id="9UF-wE-xb2"/>
                 <outlet property="view" destination="HWx-29-N4a" id="T9k-Ja-PqT"/>
                 <outletCollection property="capturedJointViews" destination="qXu-SU-L5L" collectionClass="NSMutableArray" id="omq-r9-jrH"/>
-                <outletCollection property="capturedJointBGViews" destination="hHC-RS-u61" collectionClass="NSMutableArray" id="bzR-A3-W5Z"/>
-                <outletCollection property="capturedJointConfidenceLabels" destination="tdt-1b-dRI" collectionClass="NSMutableArray" id="PGO-ba-OQF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,7 +31,7 @@
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="oTi-yG-8fA"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIa-1X-vzi" customClass="DrawingJointView" customModule="PoseEstimation_CoreML" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIa-1X-vzi" customClass="DrawingJointView" customModule="AI_Fitness" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -59,8 +60,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHC-RS-u61">
                             <rect key="frame" x="20" y="-11.5" width="310" height="310"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pose 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVT-z6-y5V">
-                                    <rect key="frame" x="137.5" y="2" width="35" height="13"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow this pose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVT-z6-y5V">
+                                    <rect key="frame" x="111" y="2" width="88.5" height="13"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -80,7 +81,7 @@
                                 <constraint firstItem="tdt-1b-dRI" firstAttribute="centerX" secondItem="hHC-RS-u61" secondAttribute="centerX" id="nd1-T5-88E"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXu-SU-L5L" customClass="DrawingJointView" customModule="PoseEstimation_CoreML" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXu-SU-L5L" customClass="DrawingJointView" customModule="AI_Fitness" customModuleProvider="target">
                             <rect key="frame" x="20" y="-11.5" width="310" height="310"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -100,6 +101,12 @@
                         <constraint firstItem="hHC-RS-u61" firstAttribute="centerX" secondItem="qXu-SU-L5L" secondAttribute="centerX" id="nZH-Ei-yuV"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooS-hx-sAO">
+                    <rect key="frame" x="193.5" y="60" width="27" height="51.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -116,6 +123,8 @@
                 <constraint firstItem="9xV-PB-Lt6" firstAttribute="trailing" secondItem="utr-2n-ZLl" secondAttribute="trailing" constant="16" id="dWT-d2-7q3"/>
                 <constraint firstItem="IrO-I6-fyq" firstAttribute="centerY" secondItem="KIa-1X-vzi" secondAttribute="centerY" id="i3I-1p-G2d"/>
                 <constraint firstItem="KIa-1X-vzi" firstAttribute="width" secondItem="IrO-I6-fyq" secondAttribute="width" id="nJS-Dh-Vwp"/>
+                <constraint firstItem="ooS-hx-sAO" firstAttribute="centerX" secondItem="HWx-29-N4a" secondAttribute="centerX" id="oza-9F-AJF"/>
+                <constraint firstItem="ooS-hx-sAO" firstAttribute="top" secondItem="9xV-PB-Lt6" secondAttribute="top" constant="16" id="t3H-ZJ-nfa"/>
                 <constraint firstItem="KIa-1X-vzi" firstAttribute="centerX" secondItem="IrO-I6-fyq" secondAttribute="centerX" id="uHQ-hl-gy6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="9xV-PB-Lt6"/>

@@ -10,13 +10,17 @@ import Foundation
 
 final class PosesGenerator {
     static func generatePoses() {
-        generateWeight1Pose()
-        generateWeight2Pose()
         generatePlankPose()
         generateSumoPose()
     }
     
-    private static func generateWeight1Pose() {
+    static func generateWeightPose() -> WeightPose {
+        let pose1 = generateWeight1Pose()
+        let pose2 = generateWeight2Pose()
+        return WeightPose(poses: [pose1, pose2])
+    }
+    
+    private static func generateWeight1Pose() -> Pose {
         let head = PredictedPoint(maxPoint: .init(x: 0.53368055555555558,
                                                   y: 0.23020833333333334),
                                   maxConfidence: 0.6737060546875)
@@ -44,9 +48,17 @@ final class PosesGenerator {
         let predictedPoints = [head, neck, r1, r2, r3, l1, l2, l3, nil, nil, nil, nil, nil ,nil]
 
         savePose(pose: predictedPoints, forIndex: 2)
+        
+        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
+            guard let predictedPoint = predictedPoint else { return nil }
+            return CapturedPoint(predictedPoint: predictedPoint)
+        }
+        
+        return Pose(points: capturedPoints,
+                    poseChangeTime: 5)
     }
     
-    private static func generateWeight2Pose() {
+    private static func generateWeight2Pose() -> Pose {
         let head = PredictedPoint(maxPoint: .init(x: 0.53368055555555558,
                                                   y: 0.23020833333333334),
                                   maxConfidence: 0.6737060546875)
@@ -74,6 +86,14 @@ final class PosesGenerator {
         let predictedPoints = [head, neck, r1, r2, r3, l1, l2, l3, nil, nil, nil, nil, nil ,nil]
         
         savePose(pose: predictedPoints, forIndex: 3)
+        
+        let capturedPoints: [CapturedPoint?] = predictedPoints.map { predictedPoint in
+            guard let predictedPoint = predictedPoint else { return nil }
+            return CapturedPoint(predictedPoint: predictedPoint)
+        }
+        
+        return Pose(points: capturedPoints,
+                    poseChangeTime: 5)
     }
     
     private static func generatePlankPose() {
